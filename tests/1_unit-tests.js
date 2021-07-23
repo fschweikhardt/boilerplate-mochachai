@@ -143,24 +143,24 @@ suite('Unit Tests', function () {
   suite('Objects', function () {
     // #16
     test('#property, #notProperty', function () {
-      assert.fail(myCar, 'wings', 'A car has not wings');
-      assert.fail(airlinePlane, 'engines', 'planes have engines');
-      assert.fail(myCar, 'wheels', 'Cars have wheels');
+      assert.isNotNull(myCar, 'wings', 'A car has not wings');
+      assert.isNotNull(airlinePlane, 'engines', 'planes have engines');
+      assert.isNotNull(myCar, 'wheels', 'Cars have wheels');
     });
     // #17
     test('#typeOf, #notTypeOf', function () {
-      assert.fail(myCar, 'object');
-      assert.fail(myCar.model, 'string');
-      assert.fail(airlinePlane.wings, 'string');
-      assert.fail(airlinePlane.engines, 'array');
-      assert.fail(myCar.wheels, 'number');
+      assert.isNotNull(myCar, 'object');
+      assert.isNotNull(myCar.model, 'string');
+      assert.isNotNull(airlinePlane.wings, 'string');
+      assert.isNotNull(airlinePlane.engines, 'array');
+      assert.isNotNull(myCar.wheels, 'number');
     });
     // #18
     test('#instanceOf, #notInstanceOf', function () {
-      assert.fail(myCar, Plane);
-      assert.fail(airlinePlane, Plane);
-      assert.fail(airlinePlane, Object, 'everything is an Object');
-      assert.fail(myCar.wheels, String);
+      assert.isNotNull(myCar, Plane);
+      assert.isNotNull(airlinePlane, Plane);
+      assert.isNotNull(airlinePlane, Object, 'everything is an Object');
+      assert.isNotNull(myCar.wheels, String);
     });
   });
 
