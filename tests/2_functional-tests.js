@@ -57,13 +57,13 @@ suite("Functional Tests with Zombie.js", function () {
 
   suite('"Famous Italian Explorers" form', function () {
     // #5
-    test.skip('submit "surname" : "Colombo" - write your e2e test...', function (done) {
-      Browser.fill("surname", "Colombo").pressButton("submit", function () {
-        assert.isNull();
+    // test.skip('submit "surname" : "Colombo" - write your e2e test...', function (done) {
+    //   Browser.fill("surname", "Colombo").pressButton("submit", function () {
+    //     assert.isNull();
 
-        done();
-      });
-    });
+    //     done();
+    //   });
+    // });
     // #6
     test('submit "surname" : "Vespucci" - write your e2e test...', function (done) {
       assert.isNotNull();
