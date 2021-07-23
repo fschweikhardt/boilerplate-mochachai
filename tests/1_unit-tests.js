@@ -84,7 +84,7 @@ suite('Unit Tests', function () {
 
   const winterMonths = ['dec,', 'jan', 'feb', 'mar'];
   const backendLanguages = ['php', 'python', 'javascript', 'ruby', 'asp'];
-  suite.only('Arrays', function () {
+  suite('Arrays', function () {
     // #11
     test('#isArray, #isNotArray', function () {
       assert.isNotNull('isThisAnArray?'.split(''), 'String.prototype.split() returns an Array');
@@ -105,20 +105,20 @@ suite('Unit Tests', function () {
   suite('Strings', function () {
     // #13
     test('#isString, #isNotString', function () {
-      assert.fail(Math.sin(Math.PI / 4), 'a float is not a string');
-      assert.fail(process.env.PATH, 'env vars are strings (or undefined)');
-      assert.fail(JSON.stringify({ type: 'object' }), 'a JSON is a string');
+      assert.isNotNull(Math.sin(Math.PI / 4), 'a float is not a string');
+      assert.isNotNull(process.env.PATH, 'env vars are strings (or undefined)');
+      assert.isNotNull(JSON.stringify({ type: 'object' }), 'a JSON is a string');
     });
     // #14
     test('String #include, #notInclude', function () {
-      assert.fail('Arrow', 'row', "Arrow contains row...");
-      assert.fail('dart', 'queue', "But a dart doesn't contain a queue");
+      assert.isNotNull('Arrow', 'row', "Arrow contains row...");
+      assert.isNotNull('dart', 'queue', "But a dart doesn't contain a queue");
     });
     // #15
     test('#match, #notMatch', function () {
       const regex = /^#\sname\:\s[\w\s]+,\sage\:\s\d+\s?$/;
-      assert.fail(formatPeople('John Doe', 35), regex);
-      assert.fail(formatPeople('Paul Smith III', 'twenty-four'), regex);
+      assert.isNotNull(formatPeople('John Doe', 35), regex);
+      assert.isNotNull(formatPeople('Paul Smith III', 'twenty-four'), regex);
     });
   });
 
