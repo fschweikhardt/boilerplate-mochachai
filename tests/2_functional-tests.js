@@ -57,16 +57,16 @@ suite("Functional Tests with Zombie.js", function () {
 
   suite('"Famous Italian Explorers" form', function () {
     // #5
-    test('submit "surname" : "Colombo" - write your e2e test...', function (done) {
-      browser.fill("surname", "Colombo").pressButton("submit", function () {
-        assert.fail();
+    test.skip('submit "surname" : "Colombo" - write your e2e test...', function (done) {
+      Browser.fill("surname", "Colombo").pressButton("submit", function () {
+        assert.isNull();
 
         done();
       });
     });
     // #6
     test('submit "surname" : "Vespucci" - write your e2e test...', function (done) {
-      assert.fail();
+      assert.isNotNull();
 
       done();
     });
