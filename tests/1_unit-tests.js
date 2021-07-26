@@ -115,7 +115,7 @@ suite('Unit Tests', function () {
       assert.notInclude('dart', 'queue', "But a dart doesn't contain a queue");
     });
     // #15
-    test.only('#match, #notMatch', function () {
+    test('#match, #notMatch', function () {
       const regex = /^#\sname\:\s[\w\s]+,\sage\:\s\d+\s?$/;
       assert.match(formatPeople('John Doe', 35), regex);
       assert.notMatch(formatPeople('Paul Smith III', 'twenty-four'), regex);
@@ -143,24 +143,24 @@ suite('Unit Tests', function () {
   suite('Objects', function () {
     // #16
     test('#property, #notProperty', function () {
-      assert.isNotNull(myCar, 'wings', 'A car has not wings');
-      assert.isNotNull(airlinePlane, 'engines', 'planes have engines');
-      assert.isNotNull(myCar, 'wheels', 'Cars have wheels');
+      assert.notProperty(myCar, 'wings', 'A car has not wings');
+      assert.property(airlinePlane, 'engines', 'planes have engines');
+      assert.property(myCar, 'wheels', 'Cars have wheels');
     });
     // #17
     test('#typeOf, #notTypeOf', function () {
-      assert.isNotNull(myCar, 'object');
-      assert.isNotNull(myCar.model, 'string');
-      assert.isNotNull(airlinePlane.wings, 'string');
-      assert.isNotNull(airlinePlane.engines, 'array');
-      assert.isNotNull(myCar.wheels, 'number');
+      assert.typeOf(myCar, 'object');
+      assert.typeOf(myCar.model, 'string');
+      assert.notTypeOf(airlinePlane.wings, 'string');
+      assert.typeOf(airlinePlane.engines, 'array');
+      assert.typeOf(myCar.wheels, 'number');
     });
     // #18
     test('#instanceOf, #notInstanceOf', function () {
-      assert.isNotNull(myCar, Plane);
-      assert.isNotNull(airlinePlane, Plane);
-      assert.isNotNull(airlinePlane, Object, 'everything is an Object');
-      assert.isNotNull(myCar.wheels, String);
+      assert.notInstanceOf(myCar, Plane);
+      assert.instanceOf(airlinePlane, Plane);
+      assert.instanceOf(airlinePlane, Object, 'everything is an Object');
+      assert.notInstanceOf(myCar.wheels, String);
     });
   });
 
