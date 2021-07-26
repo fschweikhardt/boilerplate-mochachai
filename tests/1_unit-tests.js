@@ -46,7 +46,7 @@ suite('Unit Tests', function () {
       assert.notStrictEqual([1, 'a', {}], [1, 'a', {}]);
     });
     // #7
-    test.only('#deepEqual, #notDeepEqual', function () {
+    test('#deepEqual, #notDeepEqual', function () {
       assert.deepEqual({ a: '1', b: 5 }, { b: 5, a: '1' }, "keys order doesn't matter");
       assert.notDeepEqual({ a: [5, 6] }, { a: [6, 5] }, "array elements position does matter !!");
     });
@@ -61,17 +61,17 @@ suite('Unit Tests', function () {
   suite('Comparisons', function () {
     // #8
     test('#isAbove, #isAtMost', function () {
-      assert.isNotNull('hello'.length, 5);
-      assert.isNotNull(1, 0);
-      assert.isNotNull(Math.PI, 3);
-      assert.isNotNull(1 - Math.random(), 1);
+      assert.isAtMost('hello'.length, 5);
+      assert.isAbove(1, 0);
+      assert.isAbove(Math.PI, 3);
+      assert.isAtMost(1 - Math.random(), 1);
     });
     // #9
     test('#isBelow, #isAtLeast', function () {
-      assert.isNotNull('world'.length, 5);
-      assert.isNotNull(2 * Math.random(), 0);
-      assert.isNotNull(5 % 2, 2);
-      assert.isNotNull(2 / 3, 1);
+      assert.isAtLeast('world'.length, 5);
+      assert.isAtLeast(2 * Math.random(), 0);
+      assert.isBelow(5 % 2, 2);
+      assert.isBelow(2 / 3, 1);
     });
     // #10
     test('#approximately', function () {
@@ -87,13 +87,13 @@ suite('Unit Tests', function () {
   suite('Arrays', function () {
     // #11
     test('#isArray, #isNotArray', function () {
-      assert.isNotNull('isThisAnArray?'.split(''), 'String.prototype.split() returns an Array');
-      assert.isNotNull([1, 2, 3].indexOf(2), 'indexOf returns a number.');
+      assert.isArray('isThisAnArray?'.split(''), 'String.prototype.split() returns an Array');
+      assert.isNotArray([1, 2, 3].indexOf(2), 'indexOf returns a number.');
     });
     // #12
     test('Array #include, #notInclude', function () {
-      assert.isNotNull(winterMonths, 'jul', "It's summer in july...");
-      assert.isNotNull(backendLanguages, 'javascript', 'JS is a backend language !!');
+      assert.notInclude(winterMonths, 'jul', "It's summer in july...");
+      assert.include(backendLanguages, 'javascript', 'JS is a backend language !!');
     });
   });
 
@@ -105,20 +105,20 @@ suite('Unit Tests', function () {
   suite('Strings', function () {
     // #13
     test('#isString, #isNotString', function () {
-      assert.isNotNull(Math.sin(Math.PI / 4), 'a float is not a string');
-      assert.isNotNull(process.env.PATH, 'env vars are strings (or undefined)');
-      assert.isNotNull(JSON.stringify({ type: 'object' }), 'a JSON is a string');
+      assert.isNotString(Math.sin(Math.PI / 4), 'a float is not a string');
+      assert.isString(process.env.PATH, 'env vars are strings (or undefined)');
+      assert.isString(JSON.stringify({ type: 'object' }), 'a JSON is a string');
     });
     // #14
     test('String #include, #notInclude', function () {
-      assert.isNotNull('Arrow', 'row', "Arrow contains row...");
-      assert.isNotNull('dart', 'queue', "But a dart doesn't contain a queue");
+      assert.include('Arrow', 'row', "Arrow contains row...");
+      assert.notInclude('dart', 'queue', "But a dart doesn't contain a queue");
     });
     // #15
-    test('#match, #notMatch', function () {
+    test.only('#match, #notMatch', function () {
       const regex = /^#\sname\:\s[\w\s]+,\sage\:\s\d+\s?$/;
-      assert.isNotNull(formatPeople('John Doe', 35), regex);
-      assert.isNotNull(formatPeople('Paul Smith III', 'twenty-four'), regex);
+      assert.match(formatPeople('John Doe', 35), regex);
+      assert.notMatch(formatPeople('Paul Smith III', 'twenty-four'), regex);
     });
   });
 
