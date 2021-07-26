@@ -2,7 +2,7 @@ const chai = require('chai');
 const assert = chai.assert;
 
 suite('Unit Tests', function () {
-  suite.only('Basic Assertions', function () {
+  suite('Basic Assertions', function () {
     // #1
     test('#isNull, #isNotNull', function () {
       assert.isNull(null, 'this is an optional error description - e.g. null is null');
@@ -33,22 +33,22 @@ suite('Unit Tests', function () {
   suite('Equality', function () {
     // #5
     test('#equal, #notEqual', function () {
-      assert.isNotNull(12, '12', 'numbers are coerced into strings with == ');
-      assert.isNotNull({ value: 1 }, { value: 1 }, '== compares object references');
-      assert.isNotNull(6 * '2', '12', 'no more hints...');
-      assert.isNotNull(6 + '2', '12', 'type your error message if you want');
+      assert.equal(12, '12', 'numbers are coerced into strings with == ');
+      assert.notEqual({ value: 1 }, { value: 1 }, '== compares object references');
+      assert.equal(6 * '2', '12', 'no more hints...');
+      assert.notEqual(6 + '2', '12', 'type your error message if you want');
     });
     // #6
     test('#strictEqual, #notStrictEqual', function () {
-      assert.isNotNull(6, '6');
-      assert.isNotNull(6, 3 * 2);
-      assert.isNotNull(6 * '2', 12);
-      assert.isNotNull([1, 'a', {}], [1, 'a', {}]);
+      assert.notStrictEqual(6, '6');
+      assert.strictEqual(6, 3 * 2);
+      assert.strictEqual(6 * '2', 12);
+      assert.notStrictEqual([1, 'a', {}], [1, 'a', {}]);
     });
     // #7
-    test('#deepEqual, #notDeepEqual', function () {
-      assert.isNotNull({ a: '1', b: 5 }, { b: 5, a: '1' }, "keys order doesn't matter");
-      assert.isNotNull({ a: [5, 6] }, { a: [6, 5] }, "array elements position does matter !!");
+    test.only('#deepEqual, #notDeepEqual', function () {
+      assert.deepEqual({ a: '1', b: 5 }, { b: 5, a: '1' }, "keys order doesn't matter");
+      assert.notDeepEqual({ a: [5, 6] }, { a: [6, 5] }, "array elements position does matter !!");
     });
   });
 
