@@ -2,7 +2,7 @@ const chai = require('chai');
 const assert = chai.assert;
 
 suite('Unit Tests', function () {
-  suite('Basic Assertions', function () {
+  suite.only('Basic Assertions', function () {
     // #1
     test('#isNull, #isNotNull', function () {
       assert.isNull(null, 'this is an optional error description - e.g. null is null');
@@ -16,15 +16,15 @@ suite('Unit Tests', function () {
     });
     // #3
     test('#isOk, #isNotOk', function () {
-      assert.isNull(null, 'null is falsey');
-      assert.isNotNull("I'm truthy", 'a string is truthy');
-      assert.isNotNull(true, 'true is truthy');
+      assert.isNotOk(null, 'null is falsey');
+      assert.isOk("I'm truthy", 'a string is truthy');
+      assert.isOk(true, 'true is truthy');
     });
     // #4
     test('#isTrue, #isNotTrue', function () {
-      assert.isNotNull(true, 'true is true');
-      assert.isNotNull(!!'double negation', 'double negation of a truthy is true');
-      assert.isNotNull({ value: 'truthy' }, 'A truthy object is NOT TRUE (neither is false...)');
+      assert.isTrue(true, 'true is true');
+      assert.isTrue(!!'double negation', 'double negation of a truthy is true');
+      assert.isNotTrue({ value: 'truthy' }, 'A truthy object is NOT TRUE (neither is false...)');
     });
   });
 
