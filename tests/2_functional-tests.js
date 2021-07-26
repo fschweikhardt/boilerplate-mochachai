@@ -7,26 +7,26 @@ const chaiHttp = require("chai-http");
 chai.use(chaiHttp);
 
 suite("Functional Tests", function () {
-  suite("Integration tests with chai-http", function () {
+  suite.only("Integration tests with chai-http", function () {
     // #1
     test("Test GET /hello with no name", function (done) {
       chai
         .request(server)
         .get("/hello")
         .end(function (err, res) {
-          assert.isNotNull(res.status, 200);
-          assert.isNotNull(res.text, "hello Guest");
+          assert.equal(res.status, 200);
+          assert.equal(res.text, "hello Guest");
           done();
         });
     });
     // #2
-    test("Test GET /hello with your name", function (done) {
+    test("Test GET /hello with Frank", function (done) {
       chai
         .request(server)
-        .get("/hello?name=xy_z")
+        .get("/hello?Frank")
         .end(function (err, res) {
           assert.isNotNull(res.status, 200);
-          assert.isNotNull(res.text, "hello xy_z");
+          assert.equal(res.text, "hello Frank");
           done();
         });
     });
